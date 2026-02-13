@@ -69,21 +69,21 @@ fun WeatherDashboardScreen(
         )
         Spacer(modifier = Modifier.height(32.dp))
         WeatherCard(
-            emoji = "�",
+            emoji = "🌡",
             title = "Temperature",
-            value = weatherState.temperature?.let{"$it C"}?:"-",
+            value = weatherState.temperature?.let{" $it C"}?:"-",
             isLoading = weatherState.isLoading && weatherState.temperature == null
         )
         WeatherCard(
-            emoji = "�",
+            emoji = "💧",
             title = "Humidity",
-            value = weatherState.humidity?.let{"$it %"}?:"-",
+            value = weatherState.humidity?.let{" $it %"}?:"-",
             isLoading = weatherState.isLoading && weatherState.humidity == null
         )
         WeatherCard(
-            emoji = "�\uFE0F\n",
+            emoji = "🌪",
             title = "Wind Speed",
-            value = weatherState.windSpeed?.let{"$it m/s"}?:"-",
+            value = weatherState.windSpeed?.let{" $it m/s"}?:"-",
             isLoading = weatherState.isLoading && weatherState.windSpeed == null
         )
         Spacer(modifier = Modifier.height(32.dp))
@@ -91,7 +91,7 @@ fun WeatherDashboardScreen(
             onClick = { viewModel.loadWeatherData() },
             enabled = !weatherState.isLoading
         ) {
-            Text(text = if (weatherState.isLoading) "Loading..." else "�Refresh Weather")
+            Text(text = if (weatherState.isLoading) "Loading..." else "🔃 Refresh Weather")
         }
 
         if (weatherState.error != null) {
